@@ -1,8 +1,15 @@
+web:
+  upload-path: E:/temp/uploadImg/
+
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/dada?useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
     driverClassName: com.mysql.cj.jdbc.Driver
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
 mybatis:
   mapper-locations: classpath*:mybatis/**.xml

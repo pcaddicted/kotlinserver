@@ -4,6 +4,7 @@ import com.example.kotlinserver.domain.*;
 import com.example.kotlinserver.model.UserInfo;
 import com.example.kotlinserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,9 @@ public class UserInfoController extends BaseController{
 
     @Autowired
     UserService userService;
+
+    @Value("${web.upload-path}")
+    private String dirPath;
 
     /**
      * 用户上传头像地址
@@ -37,13 +41,13 @@ public class UserInfoController extends BaseController{
             resp.setData(null);
         }else{
             try{
-                String uploadDir = this.request.getSession().getServletContext().getRealPath("/")+"upload/";
-                File dir = new File(uploadDir);
+
+                File dir = new File(dirPath);
                 if(!dir.exists()){
                     dir.mkdir();
                 }
                 String fileName = UUID.randomUUID().toString()+".jpg";
-                File serverFile = new File(uploadDir+fileName);
+                File serverFile = new File(dirPath+fileName);
                 file.transferTo(serverFile);
                 info.setUserIcon(serverFile.getAbsolutePath());
                 userService.modifyUser(info);

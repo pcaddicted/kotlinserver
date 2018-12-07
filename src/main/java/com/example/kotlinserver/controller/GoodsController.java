@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(produces = {"application/json;charset=UTF-8"}, value = {"/goods"})
-public class GoodsController {
+public class GoodsController extends BaseController{
     @Autowired
     GoodsService goodsService;
 

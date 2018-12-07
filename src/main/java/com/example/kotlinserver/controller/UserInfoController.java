@@ -6,6 +6,7 @@ import com.example.kotlinserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +28,8 @@ public class UserInfoController extends BaseController{
      * 用户上传头像地址
      * @param file
      * @return
+     * http://www.outshine.cn/view/25
+     * https://blog.csdn.net/zsl129/article/details/52906762
      */
     @RequestMapping(value = {"/uploadUserAvatar"}, method = {org.springframework.web.bind.annotation.RequestMethod.POST})
     @ResponseBody
@@ -42,7 +45,7 @@ public class UserInfoController extends BaseController{
         }else{
             try{
 
-                File dir = new File(dirPath);
+                File dir = new File( dirPath);
                 if(!dir.exists()){
                     dir.mkdir();
                 }

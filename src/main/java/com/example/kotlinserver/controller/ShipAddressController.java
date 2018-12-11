@@ -7,4 +7,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(produces = {"application/json;charset=UTF-8"}, value = {"/shipAddress"})
 public class ShipAddressController  extends BaseController {
 
+
 }

@@ -84,7 +84,7 @@ public class UserInfoController extends BaseController{
         userInfo.setUserGender(req.getGender());
         userInfo.setUserSign(req.getSign());
         this.userService.modifyUser(userInfo);
-        resp.setStatus(0);
+        resp.setStatus(1);
         resp.setData(userInfo);
         return resp;
     }

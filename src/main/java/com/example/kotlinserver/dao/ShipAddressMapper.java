@@ -1,6 +1,7 @@
 package com.example.kotlinserver.dao;
 
 import com.example.kotlinserver.model.ShipAddress;
+import java.util.List;
 
 public interface ShipAddressMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +15,6 @@ public interface ShipAddressMapper {
     int updateByPrimaryKeySelective(ShipAddress record);
 
     int updateByPrimaryKey(ShipAddress record);
+
+    List<ShipAddress> getShipAddress(Integer userid);
 }

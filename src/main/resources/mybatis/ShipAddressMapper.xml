@@ -18,7 +18,7 @@
     from ship_address
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="getShipAddress" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectShipAddressByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ship_address
@@ -36,6 +36,8 @@
       #{shipAddress,jdbcType=VARCHAR}, #{shipIsDefault,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}
       )
   </insert>
+
+  
   <insert id="insertSelective" parameterType="com.example.kotlinserver.model.ShipAddress">
     insert into ship_address
     <trim prefix="(" suffix=")" suffixOverrides=",">

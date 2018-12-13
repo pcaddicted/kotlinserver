@@ -15,26 +15,26 @@ public class ShipAddressServiceImpl implements ShipAddressService {
 
     @Override
     public int addShipAddress(ShipAddress paramShipAddress) {
-        return 0;
+        return shipAddressMapper.insert(paramShipAddress);
     }
 
     @Override
     public List<ShipAddress> getShipAddress(Integer paramInteger) {
-        return shipAddressMapper.getShipAddress(paramInteger);
+        return shipAddressMapper.selectShipAddressByUserId(paramInteger);
     }
 
     @Override
     public int modifyShipAddress(ShipAddress paramShipAddress) {
-        return 0;
+        return shipAddressMapper.updateByPrimaryKey(paramShipAddress);
     }
 
     @Override
     public int deleteShipAddress(Integer paramInteger) {
-        return 0;
+        return shipAddressMapper.deleteByPrimaryKey(paramInteger);
     }
 
     @Override
     public ShipAddress getShipAddressById(Integer paramInteger) {
-        return null;
+        return shipAddressMapper.selectByPrimaryKey(paramInteger);
     }
 }

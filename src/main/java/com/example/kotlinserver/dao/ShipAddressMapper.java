@@ -4,17 +4,17 @@ import com.example.kotlinserver.model.ShipAddress;
 import java.util.List;
 
 public interface ShipAddressMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer paramInteger);
 
-    int insert(ShipAddress record);
+    int insert(ShipAddress paramShipAddress);
 
-    int insertSelective(ShipAddress record);
+    int insertSelective(ShipAddress paramShipAddress);
 
-    ShipAddress selectByPrimaryKey(Integer id);
+    ShipAddress selectByPrimaryKey(Integer paramInteger);
 
-    int updateByPrimaryKeySelective(ShipAddress record);
+    int updateByPrimaryKeySelective(ShipAddress paramShipAddress);
 
-    int updateByPrimaryKey(ShipAddress record);
+    int updateByPrimaryKey(ShipAddress paramShipAddress);
 
-    List<ShipAddress> getShipAddress(Integer userid);
+    List<ShipAddress> selectShipAddressByUserId(Integer paramInteger);
 }

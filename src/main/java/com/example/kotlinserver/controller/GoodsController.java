@@ -40,12 +40,35 @@ public class GoodsController extends BaseController{
     @RequestMapping(value = {"/getGoodsDetail"}, method = {org.springframework.web.bind.annotation.RequestMethod.POST})
     @ResponseBody
     public BaseResp<GoodsInfo> getGoodsDetail(@RequestBody GetGoodsDetailReq req){
-        return null;
+        BaseResp resp = new BaseResp();
+        int goodId = req.getGoodsId();
+        GoodsInfo info = goodsService.getGoodsDetail(goodId);
+        if(info == null){
+            resp.setMessage("不存在的商品");
+            resp.setStatus(-1);
+            resp.setData(null);
+        }
+        resp.setMessage("获取成功");
+        resp.setStatus(1);
+        resp.setData(info);
+        return resp;
     }
 
     @RequestMapping(value = {"/getGoodsListByKeyword"}, method = {org.springframework.web.bind.annotation.RequestMethod.POST})
     @ResponseBody
     public BaseResp<List<GoodsInfo>> getGoodsListByKeyword(@RequestBody GetGoodsListByKeywordReq req){
-        return null;
+        BaseResp resp = new BaseResp();
+        PageHelper.startPage(req.getPageNo(),req.getPageSize());
+        List<GoodsInfo> list = this.goodsService.getGoodsListByKeyword(req.getKeyword());
+        if ((list == null) || (list.size() == 0)) {
+            resp.setStatus(0);
+            resp.setMessage("列表为空");
+            return resp;
+        }
+
+        resp.setStatus(0);
+        resp.setMessage("列表获取成功");
+        resp.setData(list);
+        return resp;
     }
 }

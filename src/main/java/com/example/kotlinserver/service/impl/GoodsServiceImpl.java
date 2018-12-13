@@ -32,7 +32,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public GoodsInfo getGoodsDetail(Integer paramInteger) {
-        return null;
+        return goodsInfoMapper.selectByPrimaryKey(paramInteger);
     }
 
     @Override
@@ -51,12 +51,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<GoodsInfo> getGoodsListByKeyword(String paramString, Integer paramInteger) {
-        return null;
+    public List<GoodsInfo> getGoodsListByKeyword(String paramString) {
+        return goodsInfoMapper.selectGoodsListByKeyword(paramString);
     }
 
-    @Override
-    public List<GoodsInfo> getAllByKeyword(String paramString) {
-        return null;
-    }
 }

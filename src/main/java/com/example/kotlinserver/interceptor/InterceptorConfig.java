@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class InterceptorConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new HeaderInterceptor()).addPathPatterns("/**").excludePathPatterns("/userCenter/login","/userCenter/register","/goods/getGoodsList");
+        registry.addInterceptor(new HeaderInterceptor()).addPathPatterns("/**").excludePathPatterns("/userCenter/login","/userCenter/register",
+                "/goods/getGoodsList","/goods/getGoodsDetail","/goods/getGoodsListByKeyword");
     }
 }

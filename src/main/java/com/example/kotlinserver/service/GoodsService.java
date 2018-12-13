@@ -21,7 +21,6 @@ public interface GoodsService {
 
     void modifyGoodsInfo(GoodsInfo paramGoodsInfo);
 
-    List<GoodsInfo> getGoodsListByKeyword(String paramString, Integer paramInteger);
+    List<GoodsInfo> getGoodsListByKeyword(String paramString);
 
-    List<GoodsInfo> getAllByKeyword(String paramString);
 }

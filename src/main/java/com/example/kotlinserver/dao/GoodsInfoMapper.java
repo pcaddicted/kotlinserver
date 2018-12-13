@@ -20,4 +20,6 @@ public interface GoodsInfoMapper {
     int updateByPrimaryKeyWithBLOBs(GoodsInfo record);
 
     int updateByPrimaryKey(GoodsInfo record);
+
+    List<GoodsInfo> selectGoodsListByKeyword(String paramInteger);
 }
